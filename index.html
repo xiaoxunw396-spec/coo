@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王孝熏 | 個人簡介與作品歷練</title>
+  <meta name="description" content="王孝熏的個人自我介紹與履歷網頁。我是I人，熱愛英文、英語演講第一名，享受音樂、電影與旅行的簡約生活。">
+
+  <!-- Google Fonts: Noto Sans TC & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM - 咖啡色系簡約風 (Coffee Minimalist Palette)
+       ============================================================ */
+    :root {
+      --bg-main: #fbf9f6;          /* 燕麥米白底色 */
+      --bg-card: #ffffff;          /* 純白卡片 */
+      --bg-subtle: #f3ede6;        /* 淺拿鐵灰褐底 */
+      --border-color: #e8ded4;     /* 溫潤淺褐框線 */
+      --border-hover: #d2beae;     /* 懸停邊框色 */
+      
+      --primary: #6b442a;          /* 濃縮深咖啡色 (主色) */
+      --primary-hover: #54341f;    /* 深焙焦糖褐 */
+      --primary-light: #f5ece4;    /* 淺焙奶泡色 */
+      --accent: #a3704c;           /* 暖摩卡金褐 (輔色) */
+      --accent-subtle: #eedecd;    /* 柔和摩卡點綴 */
+
+      --text-main: #2b1f17;        /* 深焙炭黑文字 */
+      --text-muted: #6e5c50;       /* 研磨中褐文字 */
+      --text-light: #9a8678;       /* 淺褐灰文字 */
+
+      --shadow-sm: 0 2px 8px rgba(107, 68, 42, 0.04);
+      --shadow-md: 0 8px 24px rgba(107, 68, 42, 0.07);
+      --shadow-lg: 0 16px 36px rgba(107, 68, 42, 0.1);
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --transition-base: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* 基本重設 */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-base);
+    }
+
+    /* 容器設定 */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+       捲動淡入動畫 (Scroll Reveal)
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.3s; }
+    .delay-3 { transition-delay: 0.45s; }
+
+    /* ============================================================
+       頂部導航列 (Minimalist Header)
+       ============================================================ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(251, 249, 246, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232, 222, 212, 0.6);
+      transition: var(--transition-base);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* 側邊菜單手機切換按鈕 */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ============================================================
+       英雄首頁區塊 (Hero Section)
+       ============================================================ */
+    .hero-section {
+      padding: 100px 0 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background-color: var(--primary-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .badge-pill .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(107, 68, 42, 0.15);
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: var(--accent-subtle);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-quote {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--primary);
+      background: linear-gradient(135deg, rgba(245, 236, 228, 0.5) 0%, rgba(238, 222, 205, 0.3) 100%);
+      border-left: 3px solid var(--primary);
+      padding: 14px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 28px;
+      background-color: var(--primary);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(107, 68, 42, 0.25);
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(107, 68, 42, 0.35);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 26px;
+      background-color: transparent;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* 右側個人極簡卡片 (Visual Identity) */
+    .profile-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+    }
+
+    .avatar-wrapper {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7b5134 0%, #4a2f1c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      box-shadow: 0 8px 24px rgba(107, 68, 42, 0.2);
+      border: 4px solid #fff;
+      outline: 1px solid var(--border-color);
+    }
+
+    .profile-name {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .profile-role {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .meta-box {
+      background: var(--bg-main);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(232, 222, 212, 0.7);
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .meta-val {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ============================================================
+       區塊通風格 (Section Common)
+       ============================================================ */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 56px;
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       關於我與I人特質 (About & Introvert Mindset)
+       ============================================================ */
+    .about-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 26px;
+      transition: var(--transition-base);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+
+    .about-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .about-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .about-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       核心成就與技能 (Achievement & Skills)
+       ============================================================ */
+    .skills-section {
+      background-color: var(--bg-subtle);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .highlight-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trophy-badge {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a3704c 0%, #6b442a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2.5rem;
+      box-shadow: 0 8px 20px rgba(107, 68, 42, 0.25);
+      flex-shrink: 0;
+    }
+
+    .highlight-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .gold-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #fdf5e6;
+      color: #8c5a2b;
+      border: 1px solid #e8cdb0;
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .highlight-content p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .highlight-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .skill-pill {
+      font-size: 0.82rem;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* 技能詳細雙欄 */
+    .skills-subgrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .skill-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .skill-box-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-bar-wrap {
+      margin-top: 14px;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .progress-track {
+      height: 8px;
+      width: 100%;
+      background-color: var(--bg-subtle);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+      border-radius: var(--radius-full);
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ============================================================
+       三大興趣探索 (Three Hobbies Section)
+       ============================================================ */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .hobby-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition-base);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .hobby-icon-box {
+      width: 72px;
+      height: 72px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      transition: var(--transition-base);
+    }
+
+    .hobby-card:hover .hobby-icon-box {
+      background: var(--primary);
+      color: #fff;
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .hobby-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .hobby-en {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .hobby-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       名言與態度 (Quote Section)
+       ============================================================ */
+    .quote-banner {
+      background: linear-gradient(135deg, #3a2517 0%, #25160d 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 56px 40px;
+      text-align: center;
+      margin: 20px 0 60px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .quote-mark {
+      font-size: 2.8rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .quote-text {
+      font-size: 1.35rem;
+      font-weight: 400;
+      max-width: 680px;
+      margin: 0 auto 16px;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+
+    .quote-author {
+      font-size: 0.95rem;
+      color: var(--accent-subtle);
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       聯絡與頁尾 (Contact & Footer)
+       ============================================================ */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 60px;
+    }
+
+    .contact-card h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 28px;
+      font-size: 0.95rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.88rem;
+    }
+
+    .back-to-top {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .back-to-top:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* ============================================================
+       響應式設計 (Responsive Mobile & Tablet)
+       ============================================================ */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .profile-card {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .about-cards-grid,
+      .hobbies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .skills-subgrid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 32px 24px;
+      }
+
+      .trophy-badge {
+        margin: 0 auto;
+      }
+
+      .highlight-content h3 {
+        justify-content: center;
+      }
+
+      .highlight-tags {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(251, 249, 246, 0.98);
+        flex-direction: column;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+      }
+
+      .header .nav-links.show {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .hero-quote {
+        font-size: 1.1rem;
+      }
+
+      .hero-section {
+        padding: 60px 0 40px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .contact-card {
+        padding: 32px 20px;
+      }
+
+      .quote-banner {
+        padding: 40px 24px;
+      }
+
+      .quote-text {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= 頂部導航列 ================= -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#home" class="brand">
+        <span class="brand-dot"></span>
+        <span>王孝熏</span>
+      </a>
+
+      <button class="mobile-menu-btn" id="menuToggle" aria-label="切換選單">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#skills">專長榮譽</a></li>
+        <li><a href="#hobbies">生活興趣</a></li>
+        <li><a href="#contact">聯絡交流</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ================= 首頁英雄區塊 ================= -->
+  <main>
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <!-- 左側文案 -->
+        <div class="hero-text reveal">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span>
+            <span>我是 I 人 ‧ 內斂且專注的力量</span>
+          </div>
+
+          <h1 class="hero-title">
+            你好，我是 <span>王孝熏</span>
+          </h1>
+
+          <div class="hero-quote">
+            「我是I人，在沉靜中觀察世界，在熱愛中持續成長。」
+          </div>
+
+          <p class="hero-desc">
+            喜歡簡約質感的步調。雖然性格沉著內向，但在感興趣的領域——特別是語言學習與跨文化溝通上，始終懷抱無比的熱忱與堅持。
+          </p>
+
+          <div class="hero-actions">
+            <a href="#skills" class="btn-primary">
+              探索專長與榮譽 ↓
+            </a>
+            <a href="#contact" class="btn-secondary">
+              與我聊聊
+            </a>
+          </div>
+        </div>
+
+        <!-- 右側個人視覺小卡 -->
+        <div class="profile-card reveal delay-1">
+          <div class="avatar-wrapper">
+            王
+          </div>
+          <h2 class="profile-name">王孝熏</h2>
+          <div class="profile-role">Wang Hsiao-Hsun</div>
+          
+          <div class="profile-meta-grid">
+            <div class="meta-box">
+              <span class="meta-label">MBTI 性格</span>
+              <span class="meta-val">I 型人 (Introvert)</span>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">核心專長</span>
+              <span class="meta-val">英文表達與溝通</span>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">榮譽成果</span>
+              <span class="meta-val">英語演講 第一名</span>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">設計偏好</span>
+              <span class="meta-val">簡約咖啡色系</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 關於我 (About Me) ================= -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">關於我與我的特質</h2>
+          <p class="section-subtitle">沉靜思考、細膩洞察，將內在能量轉化為清晰深刻的表達</p>
+        </div>
+
+        <div class="about-cards-grid">
+          <div class="about-card reveal delay-1">
+            <div class="about-icon">🧠</div>
+            <h3>內向者 (I人) 的深度專注</h3>
+            <p>享受獨處思考的時間，能沉得下心深入鑽研一件事。在安靜的環境中激發最大的專注力與創造力。</p>
+          </div>
+
+          <div class="about-card reveal delay-2">
+            <div class="about-icon">🎯</div>
+            <h3>扎實篤定的執行力</h3>
+            <p>不張揚但充滿行動力。面對挑戰時習慣做好充分準備，以有條不紊的節奏將每一步走得穩健且踏實。</p>
+          </div>
+
+          <div class="about-card reveal delay-3">
+            <div class="about-icon">☕</div>
+            <h3>崇尚簡約與純粹</h3>
+            <p>偏好乾淨明了的設計與生活步調。無論在工作、待人接物或生活美學中，都追求少即是多的純粹質感。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 專長與榮譽 (Skills & Honor) ================= -->
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Expertise & Honors</span>
+          <h2 class="section-title">擅長技能與獲獎肯定</h2>
+          <p class="section-subtitle">用語言跨越邊界，在演講舞台上展現自信與感染力</p>
+        </div>
+
+        <!-- 重點榮譽卡片 -->
+        <div class="highlight-card reveal">
+          <div class="trophy-badge">
+            🏆
+          </div>
+          <div class="highlight-content">
+            <h3>
+              英語演講比賽 第一名
+              <span class="gold-tag">Champion / 1st Place</span>
+            </h3>
+            <p>
+              克服內向性格的心理防線，透過反覆的發音雕琢、演講台風訓練與邏輯架構編排，在眾多參賽者中脫穎而出榮獲第一名。這次經驗不僅驗證了扎實的英文實力，更證明了 I 人在舞台上一樣能散發堅定光彩。
+            </p>
+            <div class="highlight-tags">
+              <span class="skill-pill"># 英文口語演說</span>
+              <span class="skill-pill"># 舞台台風自信</span>
+              <span class="skill-pill"># 故事架構編排</span>
+              <span class="skill-pill"># 臨場應變力</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 技能詳細卡片 -->
+        <div class="skills-subgrid">
+          <div class="skill-box reveal delay-1">
+            <div class="skill-box-header">
+              <div class="skill-box-title">
+                <span>🔤</span>
+                <span>英文能力 (English Mastery)</span>
+              </div>
+              <span class="gold-tag">核心強項</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px;">
+              具備優秀的英語溝通與演講技巧，持續閱讀外文資訊與精進聽說能力，能流暢表達個人思維與專業觀點。
+            </p>
+            <div class="skill-bar-wrap">
+              <div class="skill-info">
+                <span>演講與口語表達</span>
+                <span>95%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar" style="width: 95%;"></div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap">
+              <div class="skill-info">
+                <span>聽力理解與交流</span>
+                <span>90%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-box reveal delay-2">
+            <div class="skill-box-header">
+              <div class="skill-box-title">
+                <span>🌱</span>
+                <span>學習與成長歷程</span>
+              </div>
+              <span class="gold-tag">持續精進</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px;">
+              對國際視野與語言文化保持高度敏銳度，樂於接觸多元新知，並期待進一步拓展跨文化交流與專案協作技能。
+            </p>
+            <div class="skill-bar-wrap">
+              <div class="skill-info">
+                <span>跨文化溝通意識</span>
+                <span>88%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar" style="width: 88%;"></div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap">
+              <div class="skill-info">
+                <span>自主學習與專案推進</span>
+                <span>92%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar" style="width: 92%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 興趣與生活 (Hobbies) ================= -->
+    <section id="hobbies">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Lifestyle & Interests</span>
+          <h2 class="section-title">我的三大愛好</h2>
+          <p class="section-subtitle">在旋律、光影與遠方之間，尋找沉靜靈感與生活的美好養分</p>
+        </div>
+
+        <div class="hobbies-grid">
+          <!-- 興趣 1: 聽音樂 -->
+          <div class="hobby-card reveal delay-1">
+            <div class="hobby-icon-box">🎧</div>
+            <h3 class="hobby-title">聽音樂</h3>
+            <span class="hobby-en">Music & Melody</span>
+            <p class="hobby-desc">
+              戴上耳機是專屬我的心靈充電時光。在多樣流派的旋律中感受情感的流動，在工作與學習時陪伴我保持高效專注。
+            </p>
+          </div>
+
+          <!-- 興趣 2: 看電影 -->
+          <div class="hobby-card reveal delay-2">
+            <div class="hobby-icon-box">🎬</div>
+            <h3 class="hobby-title">看電影</h3>
+            <span class="hobby-en">Cinema & Stories</span>
+            <p class="hobby-desc">
+              喜愛在黑暗的影廳或沉靜的夜晚中體驗不同角色的生命歷程。透過導演鏡頭的敘事美學，開闊看世界的角度與共情能力。
+            </p>
+          </div>
+
+          <!-- 興趣 3: 旅遊 -->
+          <div class="hobby-card reveal delay-3">
+            <div class="hobby-icon-box">✈️</div>
+            <h3 class="hobby-title">旅遊探索</h3>
+            <span class="hobby-en">Travel & Journey</span>
+            <p class="hobby-desc">
+              走進陌生的城鎮、品味不同地方的人文與風景。旅行讓我學會放慢腳步，用全新視角觀察周遭，在行走中收穫靈感。
+            </p>
+          </div>
+        </div>
+
+        <!-- 質感名言橫幅 -->
+        <div class="quote-banner reveal">
+          <div class="quote-mark">“</div>
+          <p class="quote-text">
+            “Quiet people have the loudest minds.”<br>
+            以溫柔而堅定的步伐，在自己的時區裡盛開。
+          </p>
+          <div class="quote-author">— 王孝熏 ‧ Hsiao-Hsun Wang</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 聯絡交流 (Contact) ================= -->
+    <section id="contact" style="padding-top: 20px;">
+      <div class="container">
+        <div class="contact-card reveal">
+          <h2>期待與你相識交流</h2>
+          <p>
+            無論是有關於英語學習、演講交流、好歌推薦或旅行心得分享，都非常歡迎與我聯繫！
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:contact@example.com" class="btn-primary">
+              ✉️ 發送信件給我
+            </a>
+            <a href="#home" class="btn-secondary">
+              回首頁頂端 ↑
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 頁尾 ================= -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 王孝熏 (Wang Hsiao-Hsun) ‧ 版權所有</p>
+      <p style="margin-top: 4px; font-size: 0.8rem; color: var(--text-light);">
+        Designed with ☕ Warm Coffee Minimalism
+      </p>
+      <a href="#home" class="back-to-top">↑ 返回頂部</a>
+    </div>
+  </footer>
+
+  <!-- ================= 互動腳本 (Intersection Observer 淡入動畫) ================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. 捲動淡入動畫 (Scroll Fade-in Animation)
+      const reveals = document.querySelectorAll('.reveal');
+
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.88;
+
+        reveals.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < triggerBottom) {
+            element.classList.add('active');
+          }
+        });
+      };
+
+      // 支援 IntersectionObserver 提升效能
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -60px 0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        // 舊瀏覽器降級相容
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+      }
+
+      // 2. 手機版漢堡選單切換
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('show');
+        });
+
+        // 點擊任一導航連結後關閉選單
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
